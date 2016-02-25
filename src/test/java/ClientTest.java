@@ -13,7 +13,7 @@ public class ClientTest {
   }
 
   @Test
-  public void equals_returnsTrueIfDescriptionsAretheSame() {
+  public void equals_returnsTrueIfClientNamesAretheSame() {
     Client firstClient = new Client("Evan", 1);
     Client secondClient = new Client("Evan", 1);
     assertTrue(firstClient.equals(secondClient));
@@ -25,5 +25,13 @@ public class ClientTest {
     newClient.save();
     Client savedClient = Client.all().get(0);
     assertEquals(newClient.getId(), savedClient.getId());
+  }
+
+  @Test
+  public void find_findsClientInDatabase_true() {
+    Client newClient = new Client("Kieran", 1);
+    newClient.save();
+    Client savedClient = Client.find(newClient.getId());
+    assertTrue(newClient.equals(savedClient));
   }
 }
