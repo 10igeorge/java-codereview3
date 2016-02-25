@@ -13,6 +13,13 @@ public class ClientTest {
   }
 
   @Test
+  public void all_savesIntoDatabase_true() {
+    Client newClient = new Client("Evan", 1);
+    newClient.save();
+    assertEquals(Client.all().get(0).getClientName(), "Evan");
+  }
+
+  @Test
   public void equals_returnsTrueIfClientNamesAretheSame() {
     Client firstClient = new Client("Evan", 1);
     Client secondClient = new Client("Evan", 1);
