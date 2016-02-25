@@ -15,6 +15,12 @@ public class StylistTest {
   }
 
   @Test
+  public void getId_returnsIdOfStylist_true(){
+    Stylist newStylist = new Stylist("Mary");
+    assertEquals(newStylist.getId(), 0);
+  }
+
+  @Test
   public void all_initalizesAsEmpty(){
     assertEquals(Stylist.all().size(), 0);
   }

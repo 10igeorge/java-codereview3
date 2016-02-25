@@ -7,6 +7,7 @@ public class Stylist {
 
   public Stylist(String stylist){
     this.stylist = stylist;
+    this.id = id;
   }
 
   public String getStylist(){
