@@ -19,4 +19,11 @@ public class ClientTest {
     assertTrue(Client.all().get(0).equals(newClient));
   }
 
+  @Test
+  public void save_assignsStylistIdToClient() {
+    Client newClient = new Client("Blue Ivey", 1);
+    newClient.save();
+    Client savedClient = Client.all().get(0);
+    assertEquals(newClient.getId(), savedClient.getId());
+  }
 }
