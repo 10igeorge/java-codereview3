@@ -36,4 +36,14 @@ public class Stylist {
       .executeAndFetch(Stylist.class);
     }
   }
+
+  public void save() {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO stylists (stylist) VALUES (:stylist)";
+      this.id = (int) con.createQuery(sql, true)
+      .addParameter("stylist", this.stylist)
+      .executeUpdate()
+      .getKey();
+    }
+  }
 }
