@@ -46,4 +46,16 @@ public class StylistTest {
     Stylist savedStylist = Stylist.find(newStylist.getId());
     assertTrue(newStylist.equals(savedStylist));
   }
+
+  @Test
+    public void getClients_retrievesAllClientsFromDatabase_ClientList() {
+      Stylist newStylist = new Stylist("Mary");
+      newStylist.save();
+      Client firstClient = new Client("Kieran", newStylist.getId());
+      firstClient.save();
+      Client secondClient = new Client("Evan", newStylist.getId());
+      secondClient.save();
+      Client[] clients = new Client[] { firstClient, secondClient };
+      assertTrue(newStylist.getClients().containsAll(Arrays.asList(clients)));
+  }
 }
