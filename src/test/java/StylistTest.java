@@ -38,4 +38,12 @@ public class StylistTest {
     Stylist secondStylist = new Stylist("Mary");
     assertTrue(firstStylist.equals(secondStylist));
   }
+
+  @Test
+  public void find_findStylistInDatabase_true() {
+    Stylist newStylist = new Stylist("Mary");
+    newStylist.save();
+    Stylist savedStylist = Stylist.find(newStylist.getId());
+    assertTrue(newStylist.equals(savedStylist));
+  }
 }

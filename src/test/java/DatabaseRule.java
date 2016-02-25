@@ -8,11 +8,11 @@ public class DatabaseRule extends ExternalResource {
    }
 
   protected void after() {
-    // try(Connection con = DB.sql2o.open()) {
-    //   String deleteRestaurantsQuery = "DELETE FROM restaurants *;";
-    //   String deleteCuisineQuery = "DELETE FROM cuisine *;";
-    //  `` con.createQuery(deleteRestaurantsQuery).executeUpdate();
-    //   con.createQuery(deleteCuisineQuery).executeUpdate();
-    // }
+    try(Connection con = DB.sql2o.open()) {
+      String deleteClientsQuery = "DELETE FROM clients *;";
+      String deleteStylistsQuery = "DELETE FROM stylists *;";
+      con.createQuery(deleteClientsQuery).executeUpdate();
+      con.createQuery(deleteStylistsQuery).executeUpdate();
+    }
   }
 }
