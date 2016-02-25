@@ -9,10 +9,16 @@ public class StylistTest {
   public DatabaseRule database = new DatabaseRule();
 
   @Test
+  public void getStylist_returnsNameOfStylist_true() {
+    Stylist newStylist = new Stylist("Mary");
+    assertTrue(newStylist.getStylist().equals("Mary"));
+  }
+
+  @Test
   public void all_initalizesAsEmpty(){
     assertEquals(Stylist.all().size(), 0);
   }
-  
+
   @Test
   public void equals_returnsTrueIfNamesAretheSame() {
     Stylist firstStylist = new Stylist("Mary");
