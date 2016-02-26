@@ -1,0 +1,17 @@
+<h1>~*My SuPeR AwEsOmE SaLoN*~</h1>
+
+<div class="row">
+  <div class="column-md-6">
+    <h4>Stylists</h4>
+    <p>See stylist's client list by clicking name below</p>
+    #foreach ($stylist in $stylists)
+      <p><a href="/sylists/$stylist.getId()">$stylist.getStylist()</a></p>
+    #end
+    <br><br>
+    <form action="/" method="post">
+      <label for="stylist">Add a stylist to the database:</label><br>
+      <input type="text" name="stylist">
+      <button type="submit" class="btn btn-warning">Add</button>
+    </form>
+  </div>
+</div>
