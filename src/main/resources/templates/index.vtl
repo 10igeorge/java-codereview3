@@ -5,7 +5,7 @@
     <h4>Stylists</h4>
     <p>See stylist's client list by clicking name below</p>
     #foreach ($stylist in $stylists)
-      <p><a href="/sylists/$stylist.getId()">$stylist.getStylist()</a></p>
+      <p><a href="/stylists/$stylist.getId()">$stylist.getStylist()</a></p>
     #end
     <br><br>
     <form action="/" method="post">
