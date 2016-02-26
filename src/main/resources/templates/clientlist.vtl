@@ -3,7 +3,7 @@
 #foreach($client in $clients)
   <form action="/delete/client/$client.getId()" method="post">
     <p>$client.getClientName()
-    <button type="submit" id="$client.getId()" name="deleteClient" class="btn btn-xs">
+    <button type="submit" id="$client.getId()" name="deleteClient" class="deleteButton btn btn-xs">
     x</button></p>
   </form>
 #end
