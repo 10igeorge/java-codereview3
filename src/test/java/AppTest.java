@@ -17,13 +17,14 @@ public class AppTest extends FluentTest {
   @ClassRule
   public static ServerRule server = new ServerRule();
 
+  @Test
+  public void rootTest() {
+      goTo("http://localhost:4567");
+      assertThat(pageSource()).contains("Stylists");
+  }
+
   // @Test
-  // public void rootTest() {
-  //     goTo("http://localhost:4567/");
-  //     assertThat(pageSource()).contains("Text on page");
-  // }
-  // @Test
-  // public void isALeapYear() {
+  // public void stylistIsCreated() {
   //   goTo("http://localhost:4567");
   //   fill("#year").with("2004");
   //   submit(".btn");
