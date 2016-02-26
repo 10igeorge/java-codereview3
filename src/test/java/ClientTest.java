@@ -41,4 +41,17 @@ public class ClientTest {
     Client savedClient = Client.find(newClient.getId());
     assertTrue(newClient.equals(savedClient));
   }
+
+  @Test
+  public void delete_deletesClientFromDatabase_true(){
+    Stylist newStylist = new Stylist("Mary");
+    newStylist.save();
+    Client firstClient = new Client("Kieran", newStylist.getId());
+    firstClient.save();
+    Client secondClient = new Client("Evan", newStylist.getId());
+    secondClient.save();
+    Client[] clients = new Client[] { firstClient, secondClient };
+    Client.delete(firstClient.getId());
+    assertFalse(newStylist.getClients().contains("Kieran"));
+  }
 }
