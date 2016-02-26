@@ -1,7 +1,11 @@
 <h1>Client list for $stylist.getStylist()</h1>
 <br>
-#foreach ($client in $clients)
-  <p>$client.getClientName()</p>
+#foreach($client in $clients)
+  <form action="/delete/client/$client.getId()" method="post">
+    <p>$client.getClientName()
+    <button type="submit" id="$client.getId()" name="deleteClient" class="btn btn-xs">
+    x</button></p>
+  </form>
 #end
 
 
