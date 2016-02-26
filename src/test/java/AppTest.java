@@ -23,11 +23,20 @@ public class AppTest extends FluentTest {
       assertThat(pageSource()).contains("Stylists");
   }
 
-  // @Test
-  // public void stylistIsCreated() {
-  //   goTo("http://localhost:4567");
-  //   fill("#year").with("2004");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Correct response");
-  // }
+  @Test
+  public void stylistIsCreated() {
+    goTo("http://localhost:4567");
+    fill("#stylist").with("Mary");
+    submit("#stylistCreate");
+    assertThat(pageSource()).contains("Mary");
+  }
+
+  @Test
+  public void stylistIsDeleted(){
+    goTo("http://localhost:4567");
+    Stylist newStylist = new Stylist("Mary");
+    newStylist.save();
+    newStylist.delete(newStylist.getId());
+    assertThat((pageSource()).contains("Mary") == false);
+  }
 }
