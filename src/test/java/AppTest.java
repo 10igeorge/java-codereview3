@@ -52,4 +52,18 @@ public class AppTest extends FluentTest {
      submit("#clientCreate");
      assertThat(pageSource()).contains("Evan");
    }
+
+   @Test
+   public void clientIsDeleted(){
+     goTo("http://localhost:4567");
+     Stylist newStylist = new Stylist("Mary");
+     newStylist.save();
+     String stylistPage = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
+     goTo(stylistPage);
+     assertThat(pageSource()).contains("Mary");
+     Client client = new Client("Evan", newStylist.getId());
+     client.save();
+     client.delete(client.getId());
+     assertThat((pageSource()).contains("Evan") == false);
+   }
 }
