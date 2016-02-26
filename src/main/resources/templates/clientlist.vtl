@@ -12,6 +12,6 @@
 <form action="/stylists/newclient" method="post">
   <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
   <label>Add a new client for $stylist.getStylist():</label><br>
-  <input type="text" name="newClient"><br><br>
-  <button type="submit" class="btn btn-info">Add client</button>
+  <input id="newClient" type="text" name="newClient"><br><br>
+  <button id="clientCreate" type="submit" class="btn btn-info">Add client</button>
 </form>

@@ -39,4 +39,17 @@ public class AppTest extends FluentTest {
     newStylist.delete(newStylist.getId());
     assertThat((pageSource()).contains("Mary") == false);
   }
+
+  @Test
+   public void clientIsCreated() {
+     goTo("http://localhost:4567");
+     Stylist newStylist = new Stylist("Mary");
+     newStylist.save();
+     String stylistPage = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
+     goTo(stylistPage);
+     assertThat(pageSource()).contains("Mary");
+     fill("#newClient").with("Evan");
+     submit("#clientCreate");
+     assertThat(pageSource()).contains("Evan");
+   }
 }
