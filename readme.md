@@ -18,10 +18,10 @@ Enjoy!
 #### Setup/Installation Requirements
 
 ** See required technologies above **
-* run $ git clone https://github.com/10igeorge/java-codereview3.git
-* connect to psql, run # CREATE DATABASE hair_salon;
-* within git directory, run $ psql hair_salon < hair_salon.sql
-* run $ gradle run
+* run `git clone https://github.com/10igeorge/java-codereview3.git`
+* connect to psql, run `# CREATE DATABASE hair_salon;`
+* within git directory, run `psql hair_salon < hair_salon.sql`
+* run `gradle run`
 * open browser to localhost:4567/
 
 
